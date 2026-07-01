@@ -24,9 +24,10 @@ const Routes = {
   Register: "/register" as Href,
   Terms: "/terms" as Href,
   OTP: "/otp" as Href,
+
   ForgotPassword: "/forgot-password" as Href,
 
-  Home: "/(tabs)/home" as Href,
+  Home: "/(tabs)/index" as Href,
 };
 
 export default Routes;

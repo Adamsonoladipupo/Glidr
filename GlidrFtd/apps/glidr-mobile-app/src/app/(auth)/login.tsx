@@ -1,21 +1,21 @@
-import { StyleSheet, Text, View } from "react-native";
-import { useRouter} from "expo-router";
+import { useRouter } from "expo-router";
 import { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-import Screen from "../../components/Screen";
-import Logo from "../../components/Logo";
 import AuthHeader from "../../components/AuthHeader";
-import GreetingCard from "../../components/GreetingCard";
-import TextField from "../../components/TextField";
 import Button from "../../components/Button";
 import Divider from "../../components/Divider";
 import FaceIdButton from "../../components/FaceIdButton";
+import GreetingCard from "../../components/GreetingCard";
+import Logo from "../../components/Logo";
+import Screen from "../../components/Screen";
 import SocialLogin from "../../components/SocialLogin";
+import TextField from "../../components/TextField";
 
 import Colors from "../../constants/colors";
-import Typography from "../../constants/typography";
-import Spacing from "../../constants/spacing";
 import Routes from "../../constants/routes";
+import Spacing from "../../constants/spacing";
+import Typography from "../../constants/typography";
 
 
 export default function LoginScreen() {
