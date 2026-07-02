@@ -49,7 +49,7 @@ export default function CategoryCard({
 
 const styles = StyleSheet.create({
     container: {
-        width: 155,
+        width: 175,
 
         backgroundColor: "#FFFFFF",
 

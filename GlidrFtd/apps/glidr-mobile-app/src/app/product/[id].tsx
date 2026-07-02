@@ -62,7 +62,7 @@ export default function ProductDetailsScreen() {
 
         <View style={styles.imageContainer}>
           <Image
-            source={{ uri: product.image }}
+            source={ product.image }
             style={styles.image}
           />
         </View>

@@ -31,7 +31,7 @@ export default function CategoriesSection() {
 
       </View>
 
-      <FlatList
+      {/* <FlatList
         data={categories}
 
         keyExtractor={(item) => item.id}
@@ -56,7 +56,17 @@ export default function CategoriesSection() {
 
         scrollEnabled={false}
 
-      />
+      /> */}
+
+      <View style={styles.grid}>
+          {categories.map(category => (
+              <CategoryCard
+                  key={category.id}
+                  title={category.title}
+                  image={category.image}
+              />
+          ))}
+      </View>
 
     </View>
   );
@@ -92,6 +102,12 @@ fontWeight:"700",
 
 color:"#1A1A1A",
 
+},
+
+grid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
 },
 
 seeAll:{

@@ -24,7 +24,7 @@ export default function SearchResultCard({
             activeOpacity={0.8}
         >
             <Image
-                source={{ uri: product.image }}
+                source={ product.image }
                 style={styles.image}
             />
 

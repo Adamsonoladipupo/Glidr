@@ -1,3 +1,4 @@
+import { ImageSourcePropType } from "react-native";
 export interface Product {
   id: string;
   name: string;
@@ -9,6 +10,6 @@ export interface Product {
   shelfNumber: number;
   aisleNumber: number;
   shelfSection: string;
-  image: string;
+  image: ImageSourcePropType;
   description: string;
 }

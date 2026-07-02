@@ -1,21 +1,32 @@
 import { CategoriesSection, HomeHeader, SearchBar } from "@/components/home";
 // import { BottomNavigation } from "@/components/navigation";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
+import { ScrollView } from "react-native";
 
 
 import { user } from "@/mock/user.data";
+import PromoCarousel from "@/components/home/PromoCarousel";
+import SupermarketSection from "@/components/home/SupermarketSection";
 
 export default function HomeScreen() {
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
-            <HomeHeader
-                userName={user.firstName}
-                storeName={user.currentStore}
+        <ScrollView
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{
+                paddingBottom: 40,
+            }}
+        >
+            <SearchBar
+                editable={false}
+                onPress={() => router.push("/search")}
             />
-            <SearchBar editable={false} onPress={() => router.push("/search")} />
+
+            <PromoCarousel />
+
             <CategoriesSection />
+
+            <SupermarketSection />
             {/* <BottomNavigation /> */}
-        </SafeAreaView>
+        </ScrollView>
     );
 }
