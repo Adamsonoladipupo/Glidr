@@ -36,9 +36,9 @@ export default function HeroSection() {
       </form>
 
       {/* Copy */}
-      <p className={styles.eyebrow}>
+      {/* <p className={styles.eyebrow}>
         <span className={styles.eyebrowDot} aria-hidden="true" /> Glidr
-      </p>
+      </p> */}
       <h1 id="hero-heading" className={styles.heading}>
         <span className={styles.accent}>Glidr.</span> Simplify shopping experience
         from product discovery to checkout.
