@@ -119,7 +119,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            © 2022–2026 Glidr Ltd. All rights reserved.
+            © {new Date().getFullYear()} Glidr Ltd. All rights reserved.
           </p>
           <ul className={styles.socialList} aria-label="Social media links">
             {socialLinks.map(s => (
