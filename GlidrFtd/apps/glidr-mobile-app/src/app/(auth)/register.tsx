@@ -20,11 +20,32 @@ export default function RegisterScreen() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState("");
+
+  const emailRegex =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+  const isUsernameValid =
+    username.trim().length >= 3;
+
+  const isEmailValid =
+    emailRegex.test(email.trim());
+
+  const isPasswordValid =
+    passwordRegex.test(password);
+
+  const passwordsMatch =
+    password === confirmPassword &&
+    confirmPassword.length > 0;
 
   const isRegisterEnabled =
-    username.trim() !== "" &&
-    password.trim() !== "" &&
-    confirmPassword.trim() !== "";
+    isUsernameValid &&
+    isEmailValid &&
+    isPasswordValid &&
+    passwordsMatch;
 
 
   return (
@@ -54,6 +75,29 @@ export default function RegisterScreen() {
           />
 
           <Text style={styles.label}>
+            Email
+          </Text>
+
+          <TextField
+            value={email}
+            onChangeText={setEmail}
+            placeholder="john@example.com"
+            keyboardType="email-address"
+            autoCapitalize="none"
+          />
+
+          {
+            email.length > 0 &&
+            !isEmailValid && (
+
+              <Text style={styles.error}>
+                Please enter a valid email address.
+              </Text>
+
+            )
+          }
+
+          <Text style={styles.label}>
             Password
           </Text>
 
@@ -65,6 +109,29 @@ export default function RegisterScreen() {
 
           />
 
+
+
+          {/* <TextField
+            value={confirmPassword}
+            secure
+            onChangeText={setConfirmPassword}
+            placeholder="Confirm Password"
+          /> */}
+
+          {
+            password.length > 0 &&
+            !isPasswordValid && (
+
+              <Text style={styles.error}>
+                Password must contain at least 8 characters,
+                one uppercase letter,
+                one lowercase letter,
+                and one number.
+              </Text>
+
+            )
+          }
+
           <Text style={styles.label}>
             Confirm Password
           </Text>
@@ -75,7 +142,21 @@ export default function RegisterScreen() {
             onChangeText={setConfirmPassword}
             placeholder="Confirm Password"
           />
+
+          {
+            confirmPassword.length > 0 &&
+            !passwordsMatch && (
+
+              <Text style={styles.error}>
+                Passwords do not match.
+              </Text>
+
+            )
+          }
+
         </View>
+
+
 
         <View style={styles.buttonContainer}>
           <Button
@@ -137,5 +218,11 @@ const styles = StyleSheet.create({
     color: Colors.black,
     marginTop: 10,
   },
+  error: {
+    color: "#D32F2F",
+    fontSize: 13,
+    marginTop: -10,
+    marginBottom: 5,
+  }
 });
 
