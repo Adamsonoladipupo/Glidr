@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ShopperIllustration, ForkliftIllustration } from "../../assets/illustrations";
+import { ShopperIllustration } from "../../assets/illustrations";
 import styles from "./HeroSection.module.css";
 
 export default function HeroSection() {
