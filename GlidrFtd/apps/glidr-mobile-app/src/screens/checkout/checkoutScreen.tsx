@@ -1,8 +1,8 @@
 import { useOrders } from "@/hooks/useOrders";
+import { router } from "expo-router";
 import { useState } from "react";
 import { StyleSheet, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { router } from "expo-router";
 
 import { CheckoutFooter, DeliveryOptionCard, OrderSummary, PaymentMethodCard } from "@/components/checkout";
 
@@ -20,14 +20,15 @@ export default function CheckoutScreen() {
     >("pickup");
 
     const [paymentMethod, setPaymentMethod] = useState<
-        "pickup" | "online"
-    >("pickup");
+        "wallet" | "pickup" | "online"
+    >("wallet");
 
     const deliveryFee = deliveryMethod === "delivery" ? 1500 : 0;
 
     const total = getSubtotal() + deliveryFee;
 
     function handlePlaceOrder() {
+
 
         const subtotal =
             getSubtotal();
@@ -58,7 +59,11 @@ export default function CheckoutScreen() {
 
         });
 
+        console.log("Place Order clicked");
+
         clearCart();
+
+        console.log("Cart Cleared");
 
         router.replace(
             "/order-success"

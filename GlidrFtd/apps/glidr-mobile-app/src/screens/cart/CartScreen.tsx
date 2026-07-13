@@ -75,7 +75,7 @@ export default function CartScreen() {
             <TouchableOpacity
               style={styles.checkoutButton}
               onPress={() =>
-                console.log("Checkout")
+                router.push("/checkout")
               }
             >
               <Text style={styles.checkoutText}>

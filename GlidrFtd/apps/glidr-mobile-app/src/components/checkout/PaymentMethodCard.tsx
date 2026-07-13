@@ -1,16 +1,15 @@
-import React from "react";
+import { Ionicons } from "@expo/vector-icons";
 import {
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 
 interface Props {
-  selected: "online" | "pickup";
+  selected: "wallet" | "online" | "pickup";
   onSelect: (
-    method: "online" | "pickup"
+    method: "wallet" | "online" | "pickup"
   ) => void;
 }
 
@@ -25,13 +24,57 @@ export default function PaymentMethodCard({
         Payment Method
       </Text>
 
+      {/* Glidr Wallet */}
+
+      <TouchableOpacity
+        style={[
+          styles.card,
+          selected === "wallet" &&
+          styles.selectedCard,
+        ]}
+        onPress={() => onSelect("wallet")}
+      >
+        <View style={styles.left}>
+
+          <Ionicons
+            name="wallet-outline"
+            size={28}
+            color="#18B7AE"
+          />
+
+          <View style={styles.textContainer}>
+
+            <Text style={styles.title}>
+              Glidr Wallet
+            </Text>
+
+            <Text style={styles.subtitle}>
+              Pay instantly using your Glidr Wallet balance.
+            </Text>
+
+          </View>
+
+        </View>
+
+        <Ionicons
+          name={
+            selected === "wallet"
+              ? "radio-button-on"
+              : "radio-button-off"
+          }
+          size={24}
+          color="#18B7AE"
+        />
+
+      </TouchableOpacity>
+
       {/* Pay Online */}
 
       <TouchableOpacity
         style={[
           styles.card,
           selected === "online" &&
-            styles.selectedCard,
+          styles.selectedCard,
         ]}
         onPress={() => onSelect("online")}
       >
@@ -75,7 +118,7 @@ export default function PaymentMethodCard({
         style={[
           styles.card,
           selected === "pickup" &&
-            styles.selectedCard,
+          styles.selectedCard,
         ]}
         onPress={() => onSelect("pickup")}
       >

@@ -14,6 +14,7 @@ export type DeliveryMethod =
   | "delivery";
 
 export type PaymentMethod =
+  | "wallet"
   | "pickup"
   | "online";
 
