@@ -36,7 +36,7 @@ export default function CheckoutFooter({
       >
 
         <Text style={styles.buttonText}>
-          Place Order
+          Proceed to checkout
         </Text>
 
       </TouchableOpacity>

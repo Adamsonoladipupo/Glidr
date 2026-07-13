@@ -1,7 +1,7 @@
 import { useOrders } from "@/hooks/useOrders";
 import { router } from "expo-router";
 import { useState } from "react";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { CheckoutFooter, DeliveryOptionCard, OrderSummary, PaymentMethodCard } from "@/components/checkout";
@@ -59,11 +59,11 @@ export default function CheckoutScreen() {
 
         });
 
-        console.log("Place Order clicked");
+        // console.log("Place Order clicked");
 
         clearCart();
 
-        console.log("Cart Cleared");
+        // console.log("Cart Cleared");
 
         router.replace(
             "/order-success"
@@ -75,25 +75,32 @@ export default function CheckoutScreen() {
 
         <SafeAreaView style={styles.container}>
 
-            <Text style={styles.title}>
-                Checkout
-            </Text>
+            <ScrollView
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={styles.content}
+            >
+                <Text style={styles.title}>
+                    Checkout
+                </Text>
 
-            <DeliveryOptionCard
-                selected={deliveryMethod}
-                onSelect={setDeliveryMethod}
-            />
+                <DeliveryOptionCard
+                    selected={deliveryMethod}
+                    onSelect={setDeliveryMethod}
+                />
 
-            <PaymentMethodCard
-                selected={paymentMethod}
-                onSelect={setPaymentMethod}
-            />
+                <PaymentMethodCard
+                    selected={paymentMethod}
+                    onSelect={setPaymentMethod}
+                />
 
-            <OrderSummary
-                subtotal={getSubtotal()}
-                totalItems={getTotalItems()}
-                deliveryMethod={deliveryMethod}
-            />
+                <OrderSummary
+                    subtotal={getSubtotal()}
+                    totalItems={getTotalItems()}
+                    deliveryMethod={deliveryMethod}
+                />
+
+            </ScrollView>
+
 
             <CheckoutFooter
                 total={total}
@@ -116,6 +123,10 @@ const styles = StyleSheet.create({
 
         padding: 20,
 
+    },
+    content: {
+        padding: 20,
+        paddingBottom: 30,
     },
 
     title: {
